@@ -18,14 +18,20 @@ def test_degrees_len(load_small_data):
     a_few_good_men = "104257"
     apollo_13 = "112384"
 
-    assert shortest_path(kevin_bacon, tom_cruise) == [a_few_good_men]
-    assert shortest_path(tom_cruise, kevin_bacon) == [a_few_good_men]
+    assert shortest_path(kevin_bacon, tom_cruise) == [(a_few_good_men, tom_cruise)]
+    assert shortest_path(tom_cruise, kevin_bacon) == [(a_few_good_men, kevin_bacon)]
 
-    assert shortest_path(tom_hanks, kevin_bacon) == [apollo_13]
-    assert shortest_path(kevin_bacon, tom_hanks) == [apollo_13]
+    assert shortest_path(tom_hanks, kevin_bacon) == [(apollo_13, kevin_bacon)]
+    assert shortest_path(kevin_bacon, tom_hanks) == [(apollo_13, tom_hanks)]
 
-    assert shortest_path(tom_hanks, tom_cruise) == [a_few_good_men, apollo_13]
-    assert shortest_path(tom_cruise, tom_hanks) == [apollo_13, a_few_good_men]
+    assert shortest_path(tom_hanks, tom_cruise) == [
+        (apollo_13, kevin_bacon),
+        (a_few_good_men, tom_cruise),
+    ]
+    assert shortest_path(tom_cruise, tom_hanks) == [
+        (a_few_good_men, kevin_bacon),
+        (apollo_13, tom_hanks),
+    ]
 
     assert shortest_path(kevin_bacon, emma_watson) is None
     assert shortest_path(emma_watson, kevin_bacon) is None

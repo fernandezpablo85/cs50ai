@@ -97,8 +97,11 @@ def shortest_path(source, target):
     def is_goal_state(node: Node):
         return node.state == target
 
+    def r_path(node: Node):
+        return [] if node.parent is None else [(node.action, node.state)] + r_path(node.parent)
+
     def path(node: Node):
-        return [] if node.parent is None else [node.action] + path(node.parent)
+        return list(reversed(r_path(node)))
 
     start = Node(state=source, parent=None, action=None)
     frontier = QueueFrontier()
