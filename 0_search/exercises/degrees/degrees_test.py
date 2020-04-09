@@ -9,7 +9,7 @@ def load_small_data():
     load_data(f"{dir_path}/small")
 
 
-def test_degrees_len(load_small_data):
+def test_degrees(load_small_data):
     kevin_bacon = "102"
     tom_cruise = "129"
     tom_hanks = "158"
