@@ -11,11 +11,13 @@ jupyterlab = "^2.0.1"
 pandas = "^1.0.3"
 numpy = "^1.18.2"
 matplotlib = "^3.2.1"
+pygame = "2.0.0.dev6"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
 pytest = "^5.4.1"
 pre-commit = "^2.2.0"
+submit50 = "^3.0.2"
 
 [tool.black]
 line-length = 100
