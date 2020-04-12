@@ -8,4 +8,9 @@ Notes and exercises for each lecture are in separate folders:
 
 * __Lecture 0: Search__
     * [Notes](./0_search)
-    * [Video](https://www.youtube.com/watch?v=D5aJNFWsWew&feature=youtu.be)
+    * [Video](https://www.youtube.com/watch?v=D5aJNFWsWew)
+
+
+* __Lecture 1: Knowledge__
+    * [Notes](./1_knowledge)
+    * [Video](https://www.youtube.com/watch?v=LucW-p6zC5c)
