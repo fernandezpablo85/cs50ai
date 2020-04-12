@@ -1,4 +1,4 @@
-# CS50AI [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+# CS50AI [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![CS50AI](https://github.com/fernandezpablo85/cs50ai/workflows/CS50AI/badge.svg)
 
 Notes and exercises for Harvard's course on Artificial Intelligence [CS50AI](https://courses.edx.org/courses/course-v1:HarvardX+CS50AI+1T2020/course/)
 
