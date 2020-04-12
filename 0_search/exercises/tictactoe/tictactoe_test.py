@@ -90,3 +90,47 @@ def test_winner(marker, winner_move_idx):
     # and win!
     assert ttt.winner(init) is marker
     assert ttt.terminal(init)
+
+
+def ignore_test_next_move():
+    board = [["O", None, None], [None, None, None], ["X", None, "X"]]
+    assert ttt.player(board) is ttt.O
+
+    next_move = ttt.minimax(board)
+    expected = (2, 1)
+    assert next_move is expected
+
+
+def test_cs50_example():
+    board = [[None, "X", "O"], ["O", "X", None], ["X", None, "O"]]
+    assert ttt.player(board) is ttt.X
+
+    next_move = ttt.minimax(board)
+    expected = (2, 1)
+    assert next_move == expected
+
+
+def test_min_value():
+    board = [[None, "X", "O"], ["O", "X", "X"], ["X", None, "O"]]
+
+    assert ttt._min_value(board) == 0
+
+
+def test_late_victory():
+    """
+    This case is interesting, though moving to (2, 1) would be an
+    immediate victory, moving to (0, 0) would also end in a late
+    victory. The latter is picked due to tuple ordering:
+
+        min([(score, action)])
+
+    Where
+        (0, 0) < (2, 1)
+    """
+    board = [[None, "O", "X"], ["X", "O", None], ["X", None, None]]
+
+    assert ttt.player(board) is ttt.O
+
+    early_win = (2, 1)
+    late_win = (0, 0)
+    assert ttt.minimax(board) in [early_win, late_win]

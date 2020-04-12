@@ -90,14 +90,36 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    import random
-
     if terminal(board):
         return None
     else:
-        _, _, empty = _coords(board)
-        idx = random.randrange(0, len(empty))
-        return list(empty)[idx]
+        actions_and_boards = [(action, result(board, action)) for action in actions(board)]
+        if player(board) is X:
+            scored_actions = [(_min_value(board), action) for action, board in actions_and_boards]
+            best = max(scored_actions)
+            _, action = best
+            return action
+        else:
+            scored_actions = [(_max_value(board), action) for action, board in actions_and_boards]
+            best = min(scored_actions)
+            _, action = best
+            return action
+
+
+def _max_value(board):
+    if terminal(board):
+        return utility(board)
+    else:
+        next_moves = [result(board, action) for action in actions(board)]
+        return max(_min_value(move) for move in next_moves)
+
+
+def _min_value(board):
+    if terminal(board):
+        return utility(board)
+    else:
+        next_moves = [result(board, action) for action in actions(board)]
+        return min(_max_value(move) for move in next_moves)
 
 
 def _flatten_board(board):
