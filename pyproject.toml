@@ -18,6 +18,7 @@ black = "^19.10b0"
 pytest = "^5.4.1"
 pre-commit = "^2.2.0"
 submit50 = "^3.0.2"
+hypothesis = "^5.8.0"
 
 [tool.black]
 line-length = 100
